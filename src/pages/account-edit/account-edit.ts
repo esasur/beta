@@ -342,6 +342,7 @@ export class AccountEdit {
 
   deleteAccount(): void{
     this.mikiPerson.deleteAccount(this.user.id).then(data => {
+      console.log(data);
       if (data.result == 1){
         // déconnecte l'utilisateur
         this.mikiPerson.disconnect();

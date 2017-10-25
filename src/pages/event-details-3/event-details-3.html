@@ -102,7 +102,7 @@
 
 			<!-- si l'utilisateur n'est pas loggué ou que le champ n'est pas rempli, on affiche le champ du formulaire -->
 		  	<ion-item *ngIf="user == false || user.type == ''">
-		      <ion-label>Genre :</ion-label>
+		      <ion-label>Genre : *</ion-label>
 		      <ion-select formControlName="subscriptionType">
 		          <ion-option value="M">M</ion-option>
 		          <ion-option value="Mlle">Mlle</ion-option>
@@ -143,7 +143,7 @@
 
 
 		    <ion-item *ngIf="user == false || user.birthday == ''">
-		      <ion-label>Date de naissance :</ion-label>
+		      <ion-label>Date de naissance : *</ion-label>
 		      <ion-select formControlName="subscriptionBirthday_day">
 		        <ion-option *ngFor="let day of days" [value]="day">{{day}}</ion-option>
 		      </ion-select>&nbsp;
@@ -233,7 +233,7 @@
 
 
 		    <ion-item *ngIf="user == false || user.country == ''">
-		      <ion-label stacked>Pays :</ion-label>
+		      <ion-label stacked>Pays : *</ion-label>
 		      <ion-select formControlName="subscriptionPrivateCountry">
 		      	<ion-option value="">Veuillez choisir un pays</ion-option>
 		        <ion-option *ngFor="let country of countries" [value]="country.id">{{country.name.fr}}</ion-option>
@@ -273,7 +273,7 @@
 
 		    <ion-item *ngIf="user == false || user.email1 == ''" [class.error]="!eventSubscribeForm.controls.subscriptionPrivateEmail.valid && eventSubscribeForm.controls.subscriptionPrivateEmail.touched">
 		      <ion-label stacked>Email : *</ion-label>
-		      <ion-input type="text" formControlName="subscriptionPrivateEmail"></ion-input>
+		      <ion-input type="email" formControlName="subscriptionPrivateEmail"></ion-input>
 		    </ion-item>
 		    <div *ngIf="eventSubscribeForm.controls.subscriptionPrivateEmail.hasError('required') && eventSubscribeForm.controls.subscriptionPrivateEmail.touched" class="error-box">
 		    	* L'adresse e-mail n'a pas été fournie
@@ -310,7 +310,7 @@
 
 
 			    <ion-item *ngIf="user == false || user.others.company_code == '' || user.others.company_code == undefined">
-			      <ion-label>Code professionnel :</ion-label>
+			      <ion-label>Code professionnel : *</ion-label>
 			      <ion-select formControlName="subscriptionProCompanyCode">
 			        <ion-option *ngFor="let codePro of codesPros" [value]="codePro.numero">{{codePro.nom}}</ion-option>
 
@@ -373,7 +373,7 @@
 
 
 			    <ion-item *ngIf="user == false || user.company.country == ''">
-			      <ion-label stacked>Pays :</ion-label>
+			      <ion-label stacked>Pays : *</ion-label>
 			      <ion-select formControlName="subscriptionProCountry">
 			      	<ion-option>Veuillez choisir un pays</ion-option>
 			        <ion-option *ngFor="let country of countries" [value]="country.id">{{country.name.fr}}</ion-option>
@@ -413,7 +413,7 @@
 
 			    <ion-item *ngIf="user == false || user.company.email == ''" [class.error]="!eventSubscribeForm.controls.subscriptionProEmail.valid && eventSubscribeForm.controls.subscriptionProEmail.touched">
 			      <ion-label stacked>Email : *</ion-label>
-			      <ion-input type="text" formControlName="subscriptionProEmail"></ion-input>
+			      <ion-input type="email" formControlName="subscriptionProEmail"></ion-input>
 			    </ion-item>
 			    <div *ngIf="eventSubscribeForm.controls.subscriptionProEmail.hasError('required') && eventSubscribeForm.controls.subscriptionProEmail.touched" class="error-box">
 			    	* L'adresse e-mail n'a pas été fournie
