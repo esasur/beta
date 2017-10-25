@@ -102,22 +102,22 @@ export class MikiPubliciteService {
     let request = '';
 
     if (type == 1) {
-      request = 'http://es-asur.ch/api/index.php/publicite/';
+      request = 'https://es-asur.ch/api/index.php/publicite/';
     }
     else if(type == 2) {
-      request = 'http://es-asur.ch/api/index.php/publicite/48/';
+      request = 'https://es-asur.ch/api/index.php/publicite/48/';
     }
     else if(type == 3) {
-      request = 'http://es-asur.ch/api/index.php/publicite/49/';
+      request = 'https://es-asur.ch/api/index.php/publicite/49/';
     }
     else if(type == 4) {
-      request = 'http://es-asur.ch/api/index.php/publicite/58/';
+      request = 'https://es-asur.ch/api/index.php/publicite/58/';
     }
     else if(type == 5) {
-      request = 'http://es-asur.ch/api/index.php/publicite/59/';
+      request = 'https://es-asur.ch/api/index.php/publicite/59/';
     }
     else if(type == 6) {
-      request = 'http://es-asur.ch/api/index.php/publicite/62/';
+      request = 'https://es-asur.ch/api/index.php/publicite/62/';
     }
 
 
@@ -229,7 +229,7 @@ export class MikiPubliciteService {
     // retourne une promise
     return new Promise((resolve, reject) => {
 
-      this.http.post('http://es-asur.ch/api/index.php/events/publicite/' + type + '/' + pubId + '/', params, { headers: headers }).subscribe(
+      this.http.post('https://es-asur.ch/api/index.php/events/publicite/' + type + '/' + pubId + '/', params, { headers: headers }).subscribe(
         data => {
           resolve(data.json());
         },
@@ -262,7 +262,7 @@ export class MikiPubliciteService {
     else
      thumb = '';
 
-    return 'http://es-asur.ch/' + el.pictures[0].folder + thumb + el.pictures[0].filename;
+    return 'https://es-asur.ch/' + el.pictures[0].folder + thumb + el.pictures[0].filename;
   }
 
 

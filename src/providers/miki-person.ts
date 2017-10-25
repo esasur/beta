@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';  
 import {Http, Headers} from '@angular/http';
-import {Platform, Events, AlertController} from 'ionic-angular';
+import {Platform, Events} from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { Device } from '@ionic-native/device';
 
@@ -11,7 +11,7 @@ export class MikiPersonService {
 
 
 
-  constructor(private platform: Platform, private http: Http, private events: Events, private device: Device, private storage: Storage, private alertCtrl: AlertController) {
+  constructor(private platform: Platform, private http: Http, private events: Events, private device: Device, private storage: Storage) {
   	platform.ready().then(() => {
       // initialise le stockage
       // this.storage = new Storage(SqlStorage);
@@ -144,14 +144,6 @@ export class MikiPersonService {
 
       this.http.post('https://es-asur.ch/api/index.php/persons/connect/', params, { headers: headers }).subscribe(
         data => {
-          // alert(data);
-          let alert = this.alertCtrl.create({
-            title: 'New Friend!',
-            subTitle: data.toString(),
-            buttons: ['OK']
-          });
-          alert.present();
-
           let datas = data.json();
 
           if (datas.result == 1){

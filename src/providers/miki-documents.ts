@@ -37,7 +37,7 @@ export class MikiDocumentsService {
     return new Promise((resolve, reject) => {
 
       if (idCategory != undefined && idCategory != '') {
-        this.http.get('http://es-asur.ch/api/index.php/documents/' + idCategory).subscribe(
+        this.http.get('https://es-asur.ch/api/index.php/documents/' + idCategory).subscribe(
           data => {
             this.documents = Array();
             this.documents[idCategory] = data.json().documents;
@@ -51,7 +51,7 @@ export class MikiDocumentsService {
         );
       }
       else{
-        this.http.get('http://es-asur.ch/api/index.php/documents/').subscribe(
+        this.http.get('https://es-asur.ch/api/index.php/documents/').subscribe(
           data => {
             let documents = data.json().documents;
 

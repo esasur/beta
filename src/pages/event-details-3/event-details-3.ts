@@ -423,7 +423,7 @@ export class EventDetails3 {
       return false;
     }
 
-    this.http.get('http://es-asur.ch/api/index.php/page/' + pageName).subscribe(
+    this.http.get('https://es-asur.ch/api/index.php/page/' + pageName).subscribe(
       data => {
         let modal = this.modalCtrl.create(Modalites, {
           title: "Conditions d'utilisation",

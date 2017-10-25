@@ -27,10 +27,10 @@ export class DocumentsList {
   // pour l'ouverture d'un document
   openDoc(url): void{
     if (this.platform.is('ios')){
-      window.open('http://es-asur.ch/' + url, '_blank', 'EnableViewPortScale=yes');
+      window.open('https://es-asur.ch/' + url, '_blank', 'EnableViewPortScale=yes');
     }
     else{
-      window.open('http://es-asur.ch/' + url, '_system', 'location=yes');
+      window.open('https://es-asur.ch/' + url, '_system', 'location=yes');
     }
   }
 }

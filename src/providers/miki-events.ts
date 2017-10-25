@@ -26,10 +26,10 @@ export class MikiEventsService {
     }
 
     if (idCategory != undefined && idCategory != '') {
-      return this.http.get('http://es-asur.ch/api/index.php/events/list/' + type + '/' + isPublic + '/' + idCategory);
+      return this.http.get('https://es-asur.ch/api/index.php/events/list/' + type + '/' + isPublic + '/' + idCategory);
     }
     else {
-      return this.http.get('http://es-asur.ch/api/index.php/events/list/' + type + '/' + isPublic);
+      return this.http.get('https://es-asur.ch/api/index.php/events/list/' + type + '/' + isPublic);
     }
   }
 
@@ -42,41 +42,41 @@ export class MikiEventsService {
    */
   getEventsFromPerson(idPerson: number, type: number, idCategory?: any) {
     if (idCategory != undefined && idCategory != '') {
-    return this.http.get('http://es-asur.ch/api/index.php/events/person/list/' + idPerson + '/' + type + '/' + idCategory);
+    return this.http.get('https://es-asur.ch/api/index.php/events/person/list/' + idPerson + '/' + type + '/' + idCategory);
     }
     else {
-    return this.http.get('http://es-asur.ch/api/index.php/events/person/list/' + idPerson + '/' + type + '/');
+    return this.http.get('https://es-asur.ch/api/index.php/events/person/list/' + idPerson + '/' + type + '/');
     }
   }
 
 
 
   getEvent(event_id: number) {
-    return this.http.get('http://es-asur.ch/api/index.php/event/' + event_id);;
+    return this.http.get('https://es-asur.ch/api/index.php/event/' + event_id);;
   }
 
 
 
   isSubscribed(event_id: number, user_id: number){
-    return this.http.get('http://es-asur.ch/api/index.php/event/' + event_id + '/is_subscribed/' + user_id);
+    return this.http.get('https://es-asur.ch/api/index.php/event/' + event_id + '/is_subscribed/' + user_id);
   }
 
 
 
   getCodesPros(){
-    return this.http.get('http://es-asur.ch/api/index.php/events/infos/codes_pros');
+    return this.http.get('https://es-asur.ch/api/index.php/events/infos/codes_pros');
   }
 
 
 
   getCountries(){
-    return this.http.get('http://es-asur.ch/api/index.php/countries/list');
+    return this.http.get('https://es-asur.ch/api/index.php/countries/list');
   }
 
 
 
   getCategoriesFromType(type: string){
-    return this.http.get('http://es-asur.ch/api/index.php/categories/' + type);
+    return this.http.get('https://es-asur.ch/api/index.php/categories/' + type);
   }
 
 
@@ -95,7 +95,7 @@ export class MikiEventsService {
     // retourne une promise
     return new Promise((resolve, reject) => {
 
-      this.http.post('http://es-asur.ch/api/index.php/events/subscribe/', params, { headers: headers }).subscribe(
+      this.http.post('https://es-asur.ch/api/index.php/events/subscribe/', params, { headers: headers }).subscribe(
         data => {
           resolve(data.json());
         },
