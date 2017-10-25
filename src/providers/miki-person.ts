@@ -133,13 +133,6 @@ export class MikiPersonService {
     let headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-    let alert = this.alertCtrl.create({
-      title: 'Connection',
-      subTitle: 'connecting...',
-      buttons: ['OK']
-    });
-    alert.present();
-
     return new Promise((resolve, reject) => {
 
       this.http.post('https://es-asur.ch/api/index.php/persons/connect/', params, { headers: headers }).subscribe(
