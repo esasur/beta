@@ -16,6 +16,8 @@ import {AccountCreate} from '../pages/account-create/account-create';
 import {EventsList} from '../pages/events-list/events-list';
 import {AccountEdit} from '../pages/account-edit/account-edit';
 import {AccountEventsList} from '../pages/account-events-list/account-events-list'
+import {AccountEventsList1} from '../pages/account-events-list-1/account-events-list-1'
+import {AccountEventsList2} from '../pages/account-events-list-2/account-events-list-2'
 import {Documents} from '../pages/documents/documents';
 import {DocumentsList} from '../pages/documents/documents-list';
 import {Accueil} from '../pages/accueil/accueil';
@@ -49,6 +51,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     EventsList,
     AccountEdit,
     AccountEventsList,
+    AccountEventsList1,
+    AccountEventsList2,
     Documents,
     DocumentsList,
     Accueil,
@@ -78,6 +82,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     EventsList,
     AccountEdit,
     AccountEventsList,
+    AccountEventsList1,
+    AccountEventsList2,
     Documents,
     DocumentsList,
     Accueil,

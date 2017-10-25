@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';  
 import {Http, Headers} from '@angular/http';
-import {Platform, Events} from 'ionic-angular';
+import {Platform, Events, AlertController} from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { Device } from '@ionic-native/device';
 
@@ -11,7 +11,7 @@ export class MikiPersonService {
 
 
 
-  constructor(private platform: Platform, private http: Http, private events: Events, private device: Device, private storage: Storage) {
+  constructor(private platform: Platform, private http: Http, private events: Events, private device: Device, private storage: Storage, private alertCtrl: AlertController) {
   	platform.ready().then(() => {
       // initialise le stockage
       // this.storage = new Storage(SqlStorage);
@@ -98,7 +98,7 @@ export class MikiPersonService {
         
         if (this.user){
           
-          this.http.get('http://es-asur.ch/api/index.php/persons/' + this.user.id).subscribe(
+          this.http.get('https://es-asur.ch/api/index.php/persons/' + this.user.id).subscribe(
             data => {
               let datas = data.json();
 
@@ -133,10 +133,25 @@ export class MikiPersonService {
     let headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
+    let alert = this.alertCtrl.create({
+      title: 'Connection',
+      subTitle: 'connecting...',
+      buttons: ['OK']
+    });
+    alert.present();
+
     return new Promise((resolve, reject) => {
 
-      this.http.post('http://es-asur.ch/api/index.php/persons/connect/', params, { headers: headers }).subscribe(
+      this.http.post('https://es-asur.ch/api/index.php/persons/connect/', params, { headers: headers }).subscribe(
         data => {
+          // alert(data);
+          let alert = this.alertCtrl.create({
+            title: 'New Friend!',
+            subTitle: data.toString(),
+            buttons: ['OK']
+          });
+          alert.present();
+
           let datas = data.json();
 
           if (datas.result == 1){
@@ -169,7 +184,7 @@ export class MikiPersonService {
     // retourne une promise
     return new Promise((resolve, reject) => {
 
-      this.http.post('http://es-asur.ch/api/index.php/persons/' + personId + '/edit', params, { headers: headers }).subscribe(
+      this.http.post('https://es-asur.ch/api/index.php/persons/' + personId + '/edit', params, { headers: headers }).subscribe(
         data => {
           resolve(data.json());
         },
@@ -192,7 +207,7 @@ export class MikiPersonService {
     // retourne une promise
     return new Promise((resolve, reject) => {
 
-      this.http.post('http://es-asur.ch/api/index.php/persons/' + personId + '/account_delete', null, { headers: headers }).subscribe(
+      this.http.post('https://es-asur.ch/api/index.php/persons/' + personId + '/account_delete', null, { headers: headers }).subscribe(
         data => {
           resolve(data.json());
         },
@@ -217,7 +232,7 @@ export class MikiPersonService {
     // retourne une promise
     return new Promise((resolve, reject) => {
 
-      this.http.post('http://es-asur.ch/api/index.php/account/create/2', params, { headers: headers }).subscribe(
+      this.http.post('https://es-asur.ch/api/index.php/account/create/2', params, { headers: headers }).subscribe(
         dataCreate => {
 
           // vérifie que la création du compte ait fonctionnée
@@ -228,7 +243,7 @@ export class MikiPersonService {
           let paramsConnect = "username=" + datas.email + "&password=" + datas.passwords.password;
 
           // une fois le compte créé, on logue l'utilisateur
-          this.http.post('http://es-asur.ch/api/index.php/persons/connect/', paramsConnect, { headers: headers }).subscribe(
+          this.http.post('https://es-asur.ch/api/index.php/persons/connect/', paramsConnect, { headers: headers }).subscribe(
             dataConnect => {
 
               let datasConnect = dataConnect.json();
@@ -269,7 +284,7 @@ export class MikiPersonService {
     // retourne une promise
     return new Promise((resolve, reject) => {
 
-      this.http.post('http://es-asur.ch/api/index.php/persons/' + this.user.id + '/edit', params, { headers: headers }).subscribe(
+      this.http.post('https://es-asur.ch/api/index.php/persons/' + this.user.id + '/edit', params, { headers: headers }).subscribe(
         data => {
           resolve(data.json());
         },

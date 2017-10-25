@@ -68,9 +68,13 @@ export class EventDetails {
         this.tab1 = EventDetails1;
         this.tab2 = EventDetails2;
 
-        // si l'event est à venir (s'il n'a pas déjà eu lieu) on affiche le tab d'inscription
-        if (this.event.futur) {
+        // si on a le droit de s'inscrire à l'event et que l'event est à venir (s'il n'a pas déjà eu lieu) on affiche le tab d'inscription
+        if (this.event.futur && this.event.online_subscription == 1){
+          this.event.showInscription = 1;
           this.tab3 = EventDetails3;
+        }
+        else{
+          this.event.showInscription = 0;
         }
 
         // dit que l'event est chargé

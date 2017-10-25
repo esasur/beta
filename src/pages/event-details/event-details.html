@@ -9,5 +9,5 @@
 <ion-tabs #myTabs *ngIf="eventReady" selectedIndex="0" tabsPlacement="bottom" tabsHighlight="true">
   <ion-tab [root]="tab1" [rootParams]="tabParams" tabTitle="Infos" tabIcon="information-circle"></ion-tab>
   <ion-tab [root]="tab2" [rootParams]="tabParams" tabTitle="Description" tabIcon="list"></ion-tab>
-  <ion-tab [root]="tab3" [rootParams]="tabParams" *ngIf="event.futur == true" tabTitle="Inscription" tabIcon="checkmark"></ion-tab>
+  <ion-tab [root]="tab3" [rootParams]="tabParams" *ngIf="event.showInscription == 1" tabTitle="Inscription" tabIcon="checkmark"></ion-tab>
 </ion-tabs>
