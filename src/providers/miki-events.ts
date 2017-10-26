@@ -1,10 +1,12 @@
 import {Injectable} from '@angular/core';  
 import {Http, Headers} from '@angular/http';
 
+import {MikiPersonService} from './miki-person';
+
 @Injectable()
 export class MikiEventsService {
 
-  constructor(private http: Http) {
+  constructor(private http: Http, private mikiPerson: MikiPersonService) {
 	}
 
 
@@ -98,6 +100,10 @@ export class MikiEventsService {
       this.http.post('https://es-asur.ch/api/index.php/events/subscribe/', params, { headers: headers }).subscribe(
         data => {
           resolve(data.json());
+          
+          // rafraichit l'utilisateur si jamais ses données personnelles ont été mises à jour suite à son inscription
+          // (pour un utilisateur qui n'aurait p.ex. par rempli toutes ses données dans son compte utilisateur)
+          this.mikiPerson.refreshUser();
         },
         err => {
           console.error(err);

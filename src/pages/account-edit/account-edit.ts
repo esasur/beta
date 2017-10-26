@@ -31,7 +31,6 @@ export class AccountEdit {
   public months = [];
   public years = [];
 
-
   public type: any;
   public lastname: any;
   public firstname: any;
@@ -49,7 +48,7 @@ export class AccountEdit {
   public privateEmail: any;
   public proCompany: any;
   public proCompanyCode: any;
-  public codeProOther: any;
+  public proCompanyCodeOther: any;
   public proAddress: any;
   public proNpa: any;
   public proCity: any;
@@ -82,17 +81,27 @@ export class AccountEdit {
       data => {
         let codes = data.json().codes;
 
-        
         this.codesPros = codes;
 
         // recherche le nom du code profesionnel de l'utilisateur
         if (this.user){
           this.user.company_code_name = '';
+           
+          // pour savoir si on doit prendre le code personnalisé (autre) ou pas
           for(let i = 0; i < codes.length; i++) {
             if(codes[i].numero == this.user.others.company_code){
               this.user.company_code_name = codes[i].nom;
+              this.accountEditForm.controls.proCompanyCode.setValue(this.user.others.company_code);
             }
           }
+
+          // affecte le bon code professionnel
+          if (this.user.company_code_name == ''){
+            this.accountEditForm.controls.proCompanyCode.setValue(99);
+            this.accountEditForm.controls.proCompanyCodeOther.setValue(this.user.others.company_code);
+          }
+            console.log('cc1 : ' + this.user.company_code_name);
+            console.log('cc2 : ' + this.user.others.company_code);
         }
       },
       err => console.error(err),
@@ -183,6 +192,21 @@ export class AccountEdit {
     if (this.user){
       // récupert la date de naissance de l'utilisateur
       this.userBirthdayArray = this.user.birthday.split('/');
+
+      // this.codePro = this.user.others.company_code;
+      // this.codeProOther = this.user.others.company_code;
+
+      // console.log('code pro : ' + codePro);
+      // console.log(this.codesPros);
+
+      // if (this.codesPros.indexOf(codePro) == -1){
+      //   codePro = 99;
+      //   codeProOther = this.user.others.company_code;
+      // }
+
+      // for (let cp of this.codesPros) {
+      //   console.log(cp);
+      // }
       
       if (this.userBirthdayArray.length != 3){
         this.userBirthdayArray = ['', '', ''];
@@ -205,8 +229,8 @@ export class AccountEdit {
         privateFixe: new FormControl(this.user.tel1),
         privateEmail: new FormControl(this.user.email1, [Validators.required, ValidationService.emailValidator]),
         proCompany: new FormControl(this.user.company.name, Validators.required),
-        proCompanyCode: new FormControl(this.user.others.company_code, Validators.required),
-        codeProOther: new FormControl(''),
+        proCompanyCode: new FormControl('', Validators.required),
+        proCompanyCodeOther: new FormControl(''),
         proAddress: new FormControl(this.user.company.address, Validators.required),
         proNpa: new FormControl(this.user.company.npa, Validators.required),
         proCity: new FormControl(this.user.company.city, Validators.required),
@@ -239,7 +263,7 @@ export class AccountEdit {
         privateEmail: new FormControl('', [Validators.required, ValidationService.emailValidator]),
         proCompany: new FormControl('', Validators.required),
         proCompanyCode: new FormControl('', Validators.required),
-        codeProOther: new FormControl(''),
+        proCompanyCodeOther: new FormControl(''),
         proAddress: new FormControl('', Validators.required),
         proNpa: new FormControl('', Validators.required),
         proCity: new FormControl('', Validators.required),

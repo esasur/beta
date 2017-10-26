@@ -61,7 +61,7 @@ export class EventDetails3 {
   public subscriptionPrivateEmail: FormControl;
   public subscriptionProCompany: FormControl;
   public subscriptionProCompanyCode: FormControl;
-  public subscriptionCodeProOther: FormControl;
+  public subscriptionProCompanyCodeOther: FormControl;
   public subscriptionProAddress: FormControl;
   public subscriptionProNpa: FormControl;
   public subscriptionProCity: FormControl;
@@ -139,10 +139,20 @@ export class EventDetails3 {
         // recherche le nom du code profesionnel de l'utilisateur
         if (this.user){
           this.user.company_code_name = '';
+
+          // pour savoir si on doit prendre le code personnalisé (autre) ou pas
           for(let i = 0; i < codes.length; i++) {
             if(codes[i].numero == this.user.others.company_code){
               this.user.company_code_name = codes[i].nom;
+              this.eventSubscribeForm.controls.subscriptionProCompanyCode.setValue(this.user.others.company_code);
             }
+          }
+
+          // affecte le bon code professionnel
+          if (this.user.company_code_name == ''){
+            this.eventSubscribeForm.controls.subscriptionProCompanyCode.setValue(99);
+            this.eventSubscribeForm.controls.subscriptionProCompanyCodeOther.setValue(this.user.others.company_code);
+            this.user.company_code_name = this.user.others.company_code;
           }
         }
       },
@@ -288,7 +298,7 @@ export class EventDetails3 {
         subscriptionPrivateEmail: new FormControl(this.user.email1, [Validators.required, ValidationService.emailValidator]),
         subscriptionProCompany: new FormControl(this.user.company.name, Validators.required),
         subscriptionProCompanyCode: new FormControl(this.user.others.company_code, Validators.required),
-        subscriptionCodeProOther: new FormControl(''),
+        subscriptionProCompanyCodeOther: new FormControl(''),
         subscriptionProAddress: new FormControl(this.user.company.address, Validators.required),
         subscriptionProNpa: new FormControl(this.user.company.npa, Validators.required),
         subscriptionProCity: new FormControl(this.user.company.city, Validators.required),
@@ -327,7 +337,7 @@ export class EventDetails3 {
         subscriptionPrivateEmail: new FormControl('', [Validators.required, ValidationService.emailValidator]),
         subscriptionProCompany: new FormControl('', Validators.required),
         subscriptionProCompanyCode: new FormControl('', Validators.required),
-        subscriptionCodeProOther: new FormControl(''),
+        subscriptionProCompanyCodeOther: new FormControl(''),
         subscriptionProAddress: new FormControl('', Validators.required),
         subscriptionProNpa: new FormControl('', Validators.required),
         subscriptionProCity: new FormControl('', Validators.required),

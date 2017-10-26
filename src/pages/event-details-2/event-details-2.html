@@ -11,8 +11,8 @@
 	
 	<!-- Pour la publicité -->
 	<ion-row>
-	  	<div class="publicite_top" *ngIf="myEvent.category.id == 1 && mikiPublicite.publicites != undefined && mikiPublicite.publicites.fc_top.length > 0" [innerHTML]="mikiPublicite.current('fc_top')"></div>
-	    <div class="publicite_top" *ngIf="myEvent.category.id == 15 && mikiPublicite.publicites != undefined && mikiPublicite.publicites.ps_top.length > 0" [innerHTML]="mikiPublicite.current('ps_top')"></div>
+	  	<div class="publicite_top" *ngIf="myEvent.category.id == 1 && mikiPublicite.publicites != undefined && mikiPublicite.publicites.fc_top != undefined && mikiPublicite.publicites.fc_top.length > 0" [innerHTML]="mikiPublicite.current('fc_top')"></div>
+	    <div class="publicite_top" *ngIf="myEvent.category.id == 15 && mikiPublicite.publicites != undefined && mikiPublicite.publicites.ps_top != undefined && mikiPublicite.publicites.ps_top.length > 0" [innerHTML]="mikiPublicite.current('ps_top')"></div>
 	</ion-row>
 
 	<div class="bloc-info" *ngIf="myEvent.objectif != ''">

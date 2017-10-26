@@ -162,7 +162,7 @@ export class MikiPersonService {
   editAccount(personId, datas): any{
     let params = "";
     params += 'params=' + JSON.stringify(datas);
-
+// console.log(JSON.stringify(datas));
     let headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
 

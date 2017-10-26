@@ -13,8 +13,8 @@
 	
 	<!-- Pour la publicité -->
 	<ion-row>
-	  	<div class="publicite_top" *ngIf="myEvent.category.id == 1 && mikiPublicite.publicites != undefined && mikiPublicite.publicites.fc_top.length > 0" [innerHTML]="mikiPublicite.current('fc_top')"></div>
-	    <div class="publicite_top" *ngIf="myEvent.category.id == 15 && mikiPublicite.publicites != undefined && mikiPublicite.publicites.ps_top.length > 0" [innerHTML]="mikiPublicite.current('ps_top')"></div>
+	  	<div class="publicite_top" *ngIf="myEvent.category.id == 1 && mikiPublicite.publicites != undefined && mikiPublicite.publicites.fc_top != undefined && mikiPublicite.publicites.fc_top.length > 0" [innerHTML]="mikiPublicite.current('fc_top')"></div>
+	    <div class="publicite_top" *ngIf="myEvent.category.id == 15 && mikiPublicite.publicites != undefined && mikiPublicite.publicites.ps_top != undefined && mikiPublicite.publicites.ps_top.length > 0" [innerHTML]="mikiPublicite.current('ps_top')"></div>
 	</ion-row>
 
 
@@ -143,6 +143,7 @@
 
 
 		    <ion-item *ngIf="user == false || user.birthday == ''">
+		      <!-- <ion-label stacked>Date de naissance : *</ion-label> -->
 		      <ion-label>Date de naissance : *</ion-label>
 		      <ion-select formControlName="subscriptionBirthday_day">
 		        <ion-option *ngFor="let day of days" [value]="day">{{day}}</ion-option>
@@ -245,29 +246,29 @@
 		    </ion-row>
 
 
-		    <ion-item *ngIf="user == false || user.tel1 == ''" [class.error]="!eventSubscribeForm.controls.subscriptionPrivateMobile.valid && eventSubscribeForm.controls.subscriptionPrivateMobile.touched">
+		    <ion-item *ngIf="user == false || user.tel2 == ''" [class.error]="!eventSubscribeForm.controls.subscriptionPrivateMobile.valid && eventSubscribeForm.controls.subscriptionPrivateMobile.touched">
 		      <ion-label stacked>Tél. mobile : *</ion-label>
 		      <ion-input type="text" formControlName="subscriptionPrivateMobile"></ion-input>
 		    </ion-item>
 		    <div *ngIf="eventSubscribeForm.controls.subscriptionPrivateMobile.hasError('required') && eventSubscribeForm.controls.subscriptionPrivateMobile.touched" class="error-box">
 		    	* Le téléphone mobile n'a pas été fourni
 		    </div>
-		    <ion-row *ngIf="user != false && user.tel1 != ''">
+		    <ion-row *ngIf="user != false && user.tel2 != ''">
 		      <ion-col width-33><strong>Tél. mobile :</strong></ion-col>
-					<ion-col width-67>{{user.tel1}}</ion-col>
+					<ion-col width-67>{{user.tel2}}</ion-col>
 		    </ion-row>
 
 
-		    <ion-item *ngIf="user == false || user.tel2 == ''" [class.error]="!eventSubscribeForm.controls.subscriptionPrivateFixe.valid && eventSubscribeForm.controls.subscriptionPrivateFixe.touched">
+		    <ion-item *ngIf="user == false || user.tel1 == ''" [class.error]="!eventSubscribeForm.controls.subscriptionPrivateFixe.valid && eventSubscribeForm.controls.subscriptionPrivateFixe.touched">
 		      <ion-label stacked>Tél. fixe :</ion-label>
 		      <ion-input type="text" formControlName="subscriptionPrivateFixe"></ion-input>
 		    </ion-item>
 		    <div *ngIf="eventSubscribeForm.controls.subscriptionPrivateFixe.hasError('required') && eventSubscribeForm.controls.subscriptionPrivateFixe.touched" class="error-box">
 		    	* Le téléphone fixe n'a pas été fourni
 		    </div>
-		    <ion-row *ngIf="user != false && user.tel2 != ''">
+		    <ion-row *ngIf="user != false && user.tel1 != ''">
 		      <ion-col width-33><strong>Tél. fixe :</strong></ion-col>
-					<ion-col width-67>{{user.tel2}}</ion-col>
+					<ion-col width-67>{{user.tel1}}</ion-col>
 		    </ion-row>
 
 
@@ -310,7 +311,7 @@
 
 
 			    <ion-item *ngIf="user == false || user.others.company_code == '' || user.others.company_code == undefined">
-			      <ion-label>Code professionnel : *</ion-label>
+			      <ion-label stacked>Code professionnel : *</ion-label>
 			      <ion-select formControlName="subscriptionProCompanyCode">
 			        <ion-option *ngFor="let codePro of codesPros" [value]="codePro.numero">{{codePro.nom}}</ion-option>
 
@@ -324,11 +325,11 @@
 			    </ion-row>
 
 
-			    <ion-item *ngIf="(user == false || user.others.company_code == '') && eventSubscribeForm.controls.subscriptionProCompanyCode.value == 99" [class.error]="!eventSubscribeForm.controls.subscriptionCodeProOther.valid && eventSubscribeForm.controls.subscriptionCodeProOther.touched">
+			    <ion-item *ngIf="(user == false || user.others.company_code == '' || user.others.company_code == undefined) && eventSubscribeForm.controls.subscriptionProCompanyCode.value == 99" [class.error]="!eventSubscribeForm.controls.subscriptionProCompanyCodeOther.valid && eventSubscribeForm.controls.subscriptionProCompanyCodeOther.touched">
 			      <ion-label stacked>Autre code professionnel : *</ion-label>
-			      <ion-input type="text" formControlName="subscriptionCodeProOther"></ion-input>
+			      <ion-input type="text" formControlName="subscriptionProCompanyCodeOther"></ion-input>
 			    </ion-item>
-			    <div *ngIf="eventSubscribeForm.controls.subscriptionProCompanyCode.value == 99 && eventSubscribeForm.controls.subscriptionCodeProOther.hasError('required') && eventSubscribeForm.controls.subscriptionCodeProOther.touched" class="error-box">
+			    <div *ngIf="eventSubscribeForm.controls.subscriptionProCompanyCode.value == 99 && eventSubscribeForm.controls.subscriptionProCompanyCodeOther.hasError('required') && eventSubscribeForm.controls.subscriptionProCompanyCodeOther.touched" class="error-box">
 			    	* Le code professionnel n'a pas été fourni
 			    </div>
 

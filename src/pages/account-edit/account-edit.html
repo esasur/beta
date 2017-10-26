@@ -181,11 +181,11 @@
 		</ion-item>
 
 
-		<ion-item *ngIf="accountEditForm.controls.proCompanyCode.value == 99" [class.error]="!accountEditForm.controls.codeProOther.valid && accountEditForm.controls.codeProOther.touched">
+		<ion-item *ngIf="accountEditForm.controls.proCompanyCode.value == 99" [class.error]="!accountEditForm.controls.proCompanyCodeOther.valid && accountEditForm.controls.proCompanyCodeOther.touched">
 			<ion-label class="required_field" stacked>Autre code professionnel : *</ion-label>
-			<ion-input type="text" formControlName="codeProOther"></ion-input>
+			<ion-input type="text" formControlName="proCompanyCodeOther"></ion-input>
 		</ion-item>
-		<div *ngIf="accountEditForm.controls.proCompanyCode.value == 99 && accountEditForm.controls.codeProOther.hasError('required') && accountEditForm.controls.codeProOther.touched" class="error-box">
+		<div *ngIf="accountEditForm.controls.proCompanyCode.value == 99 && accountEditForm.controls.proCompanyCodeOther.hasError('required') && accountEditForm.controls.proCompanyCodeOther.touched" class="error-box">
 			* Le code professionnel n'a pas été fourni
 		</div>
 
