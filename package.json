@@ -33,6 +33,7 @@
     "cordova-android": "^8.1.0",
     "cordova-plugin-console": "^1.1.0",
     "cordova-plugin-device": "^2.0.3",
+    "cordova-plugin-ionic": "^5.4.5",
     "cordova-plugin-ionic-webview": "^4.1.2",
     "cordova-plugin-push": "0.0.1",
     "cordova-plugin-splashscreen": "^5.0.3",
@@ -59,7 +60,15 @@
       "cordova-plugin-whitelist": {},
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-statusbar": {},
-      "ionic-plugin-keyboard": {}
+      "ionic-plugin-keyboard": {},
+      "cordova-plugin-ionic": {
+        "APP_ID": "00de980d",
+        "CHANNEL_NAME": "Master",
+        "UPDATE_METHOD": "background",
+        "MAX_STORE": "2",
+        "MIN_BACKGROUND_DURATION": "30",
+        "UPDATE_API": "https://api.ionicjs.com"
+      }
     },
     "platforms": [
       "android"
