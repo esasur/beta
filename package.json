@@ -63,7 +63,7 @@
       "ionic-plugin-keyboard": {},
       "cordova-plugin-ionic": {
         "APP_ID": "00de980d",
-        "CHANNEL_NAME": "Master",
+        "CHANNEL_NAME": "Production",
         "UPDATE_METHOD": "background"
       }
     },
