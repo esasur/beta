@@ -1,6 +1,9 @@
 {
   "name": "esasur",
-  "app_id": "00de980d",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
   "gulpStartupTasks": [
     "sass",
     "watch"
@@ -10,8 +13,5 @@
     "!www/lib/**/*",
     "!www/**/*.map"
   ],
-  "integrations": {
-    "cordova": {}
-  },
-  "type": "ionic-angular"
+  "id": "00de980d"
 }

@@ -28,6 +28,7 @@ import {EventDetails} from '../pages/event-details/event-details';
 import {EventDetails1} from '../pages/event-details-1/event-details-1';
 import {EventDetails2} from '../pages/event-details-2/event-details-2';
 import {EventDetails3} from '../pages/event-details-3/event-details-3';
+import {PasswordRecovery} from '../pages/password-recovery/password-recovery';
 import {Modalites} from '../pages/modalites/modalites';
 
 import {MikiPersonService} from '../providers/miki-person';
@@ -63,6 +64,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     EventDetails1,
     EventDetails2,
     EventDetails3,
+    PasswordRecovery,
     Modalites
   ],
   imports: [
@@ -94,12 +96,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     EventDetails1,
     EventDetails2,
     EventDetails3,
+    PasswordRecovery,
     Modalites
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    Storage,
     Device,
     Push,
     MikiPersonService,

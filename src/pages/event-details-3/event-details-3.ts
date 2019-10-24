@@ -346,7 +346,8 @@ export class EventDetails3 {
         subscriptionProFax: new FormControl(''),
         subscriptionProEmail: new FormControl('', [Validators.required, ValidationService.emailValidator]),
         subscriptionComment: new FormControl(''),
-        subscriptionConditions: new FormControl('', Validators.required)
+        // subscriptionConditions: new FormControl('', Validators.required)
+        subscriptionConditions: new FormControl(false, ValidationService.checkboxValidator)
       });
     }
 
@@ -477,6 +478,8 @@ export class EventDetails3 {
           });
 
           toast.onDidDismiss(() => {
+            // console.log('change tab');
+            // alert('pass1');
             this.e.publish('event:subscribed');
           })
 

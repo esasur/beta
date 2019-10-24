@@ -214,6 +214,7 @@ export class EventsList2 {
         }
 
         this.allEvents = this.foundEvents;
+        this.searchEvents();
       },
       err => {
         console.error(err);

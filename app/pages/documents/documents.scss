@@ -1,0 +1,9 @@
+.documents {
+
+	.document__description,
+	.document__title{
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+}

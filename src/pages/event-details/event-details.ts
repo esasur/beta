@@ -35,7 +35,9 @@ export class EventDetails {
 
     // lorsqu'une inscription a eu lieu, on affiche le premier onglet
     this.e.subscribe('event:subscribed', () => {
+      // console.log('change tab done');
       this.tabRef.select(0);
+      // alert('pass2');
     });
 
     // récupert l'event à afficher
