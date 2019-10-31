@@ -29,6 +29,11 @@
 
   <link href="build/main.css" rel="stylesheet">
 
+  <script type="text/javascript">
+    document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() { console.log('1'); navigator.splashscreen.hide(); console.log('2');}
+  </script>
+
 </head>
 <body>
 

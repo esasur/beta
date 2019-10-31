@@ -31,6 +31,7 @@
     "android-versions": "^1.2.1",
     "autoprefixer": "^7.1.6",
     "cordova-android": "^8.1.0",
+    "cordova-ios": "^5.0.1",
     "cordova-plugin-console": "^1.1.0",
     "cordova-plugin-device": "^2.0.3",
     "cordova-plugin-ionic": "^5.4.5",
@@ -71,7 +72,8 @@
       }
     },
     "platforms": [
-      "android"
+      "android",
+      "ios"
     ]
   },
   "description": "esasur: An Ionic project",
