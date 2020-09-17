@@ -9,7 +9,7 @@ import {MikiDocumentsService} from '../../providers/miki-documents';
 })
 export class DocumentsList {
   private user: boolean = false;
-  public categoryId : any = 60;
+  public categoryId : any = 57;
 
   constructor(navParams: NavParams, private platform: Platform, public mikiDocuments: MikiDocumentsService) {
     
@@ -21,16 +21,16 @@ export class DocumentsList {
       this.user = false;
     }
 
-    this.categoryId = JSON.parse(navParams.data).categoryId;
+    // this.categoryId = JSON.parse(navParams.data).categoryId;
   }
   
   // pour l'ouverture d'un document
   openDoc(url): void{
     if (this.platform.is('ios')){
-      window.open('https://es-asur.ch/' + url, '_blank', 'EnableViewPortScale=yes');
+      window.open('https://asur-formation.ch/' + url, '_blank', 'EnableViewPortScale=yes');
     }
     else{
-      window.open('https://es-asur.ch/' + url, '_system', 'location=yes');
+      window.open('https://asur-formation.ch/' + url, '_system', 'location=yes');
     }
   }
 }

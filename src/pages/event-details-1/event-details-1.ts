@@ -17,6 +17,8 @@ export class EventDetails1 {
   public eventDateStart: any;
   public eventDateStop: any;
   public eventCategory: any;
+  public eventCategories: any;
+  public eventTheme: any;
   public eventAddress: any = '';
   public eventPic = '';
   public msgParticipants: any = ''
@@ -53,6 +55,12 @@ export class EventDetails1 {
     // this.eventDateStop = this.events.getDate(this.myEvent.date_stop);
 
     this.eventCategory = this.myEvent.category.name.fr;
+    this.eventTheme = this.myEvent.theme.name.fr;
+
+    this.eventCategories = '';
+    for (let cat of this.myEvent.categories){
+      this.eventCategories += cat.name.fr + '<br>';
+    }
         
     // this.eventReady = true;  // pour savoir si on peut afficher les dates
 

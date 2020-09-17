@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Http, Headers} from '@angular/http';
 import {Platform, Events} from 'ionic-angular';
 import { Storage } from '@ionic/storage';
-import { Device } from '@ionic-native/device';
+import { Device } from '@ionic-native/device/ngx';
 
 
 @Injectable()
@@ -98,7 +98,7 @@ export class MikiPersonService {
         
         if (this.user){
           
-          this.http.get('https://es-asur.ch/api/index.php/persons/' + this.user.id).subscribe(
+          this.http.get('https://asur-formation.ch/api/persons/' + this.user.id).subscribe(
             data => {
               let datas = data.json();
 
@@ -134,8 +134,7 @@ export class MikiPersonService {
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
     return new Promise((resolve, reject) => {
-
-      this.http.post('https://es-asur.ch/api/index.php/persons/connect/', params, { headers: headers }).subscribe(
+      this.http.post('https://asur-formation.ch/api/persons/connect', params, { headers: headers }).subscribe(
         data => {
           let datas = data.json();
 
@@ -162,14 +161,14 @@ export class MikiPersonService {
   editAccount(personId, datas): any{
     let params = "";
     params += 'params=' + JSON.stringify(datas);
-// console.log(JSON.stringify(datas));
+
     let headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
     // retourne une promise
     return new Promise((resolve, reject) => {
 
-      this.http.post('https://es-asur.ch/api/index.php/persons/' + personId + '/edit', params, { headers: headers }).subscribe(
+      this.http.post('https://asur-formation.ch/api/persons/' + personId + '/edit', params, { headers: headers }).subscribe(
         data => {
           resolve(data.json());
         },
@@ -192,7 +191,7 @@ export class MikiPersonService {
     // retourne une promise
     return new Promise((resolve, reject) => {
 
-      this.http.post('https://es-asur.ch/api/index.php/persons/' + personId + '/account_delete', null, { headers: headers }).subscribe(
+      this.http.post('https://asur-formation.ch/api/persons/' + personId + '/account_delete', null, { headers: headers }).subscribe(
         data => {
           resolve(data.json());
         },
@@ -217,7 +216,7 @@ export class MikiPersonService {
     // retourne une promise
     return new Promise((resolve, reject) => {
 
-      this.http.post('https://es-asur.ch/api/index.php/account/create/2', params, { headers: headers }).subscribe(
+      this.http.post('https://asur-formation.ch/api/account/create/2', params, { headers: headers }).subscribe(
         dataCreate => {
 
           // vérifie que la création du compte ait fonctionnée
@@ -228,7 +227,7 @@ export class MikiPersonService {
           let paramsConnect = "username=" + datas.email + "&password=" + datas.passwords.password;
 
           // une fois le compte créé, on logue l'utilisateur
-          this.http.post('https://es-asur.ch/api/index.php/persons/connect/', paramsConnect, { headers: headers }).subscribe(
+          this.http.post('https://asur-formation.ch/api/persons/connect', paramsConnect, { headers: headers }).subscribe(
             dataConnect => {
 
               let datasConnect = dataConnect.json();
@@ -269,7 +268,7 @@ export class MikiPersonService {
     // retourne une promise
     return new Promise((resolve, reject) => {
 
-      this.http.post('https://es-asur.ch/api/index.php/persons/' + this.user.id + '/edit', params, { headers: headers }).subscribe(
+      this.http.post('https://asur-formation.ch/api/persons/' + this.user.id + '/edit', params, { headers: headers }).subscribe(
         data => {
           resolve(data.json());
         },

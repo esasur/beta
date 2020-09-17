@@ -70,42 +70,58 @@ export class Accueil{
   goto(number: number){
     switch(number){
       case 1:
-        // formation continue
+        // ambulancier
 
         // si des publicités sont configurées on les affiche
         if (this.mikiPublicite.publicites != undefined && this.mikiPublicite.publicites.fc_home.length > 0){
           this.nav.push(PubliciteHome, { pubType: 'fc_home', user: this.mikiPerson.user });
         }
         else{
-          this.nav.push(this.EventsList, { idCategory: 1, user: this.mikiPerson.user });
+          this.nav.push(this.EventsList, { idCategory: 30, user: this.mikiPerson.user });
         }
 
         break;
       case 2:
-        // 1ers secours
+        // professionnel médical
         
         // si des publicités sont configurées on les affiche
         if (this.mikiPublicite.publicites != undefined && this.mikiPublicite.publicites.ps_home.length > 0){
           this.nav.push(PubliciteHome, { pubType: 'ps_home', user: this.mikiPerson.user });
         }
         else{
-          this.nav.push(this.EventsList, { idCategory: 15, user: this.mikiPerson.user });
+          this.nav.push(this.EventsList, { idCategory: 31, user: this.mikiPerson.user });
         }
 
         break;
       case 3:
+        // instructeur / formateur
+        this.nav.push(this.EventsList, { idCategory: 32, user: this.mikiPerson.user });
+        break;
+      case 4:
+        // entreprise / association
+        this.nav.push(this.EventsList, { idCategory: 33, user: this.mikiPerson.user });
+        break;
+      case 5:
+        // grand public
+        this.nav.push(this.EventsList, { idCategory: 34, user: this.mikiPerson.user });
+        break;
+      case 6:
+        // toutes les formations
+        this.nav.push(this.EventsList, { idCategory: '', user: this.mikiPerson.user });
+        break;
+      case 7:
         // login
         this.nav.push(this.loginPage, { user: this.mikiPerson.user });
         break;
-      case 4:
+      case 8:
         // création d'un compte utilisateur
         this.nav.push(this.createAccountPage, { user: this.mikiPerson.user });
         break;
-      case 5:
+      case 9:
         // mon compte
         this.nav.push(this.accountEdit, { user: this.mikiPerson.user });
         break;
-      case 6:
+      case 10:
         // déconnexion
         this.disconnect();
         break;

@@ -26,10 +26,12 @@ export class MikiEventsService {
     }
 
     if (idCategory != undefined && idCategory != '') {
-      return this.http.get('http://es-asur.ch/api/index.php/events/list/' + type + '/' + isPublic + '/' + idCategory);
+      // return this.http.get('http://es-asur.ch/api/index.php/events/list/' + type + '/' + isPublic + '/' + idCategory);
+      return this.http.get('https://asur-formation.ch/api/events/' + type + '/' + isPublic + '/' + idCategory);
     }
     else {
-      return this.http.get('http://es-asur.ch/api/index.php/events/list/' + type + '/' + isPublic);
+      // return this.http.get('http://es-asur.ch/api/index.php/events/list/' + type + '/' + isPublic);
+      return this.http.get('https://asur-formation.ch/api/events/' + type + '/' + isPublic);
     }
   }
 

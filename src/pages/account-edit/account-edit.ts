@@ -100,8 +100,8 @@ export class AccountEdit {
             this.accountEditForm.controls.proCompanyCode.setValue(99);
             this.accountEditForm.controls.proCompanyCodeOther.setValue(this.user.others.company_code);
           }
-            console.log('cc1 : ' + this.user.company_code_name);
-            console.log('cc2 : ' + this.user.others.company_code);
+            // console.log('cc1 : ' + this.user.company_code_name);
+            // console.log('cc2 : ' + this.user.others.company_code);
         }
       },
       err => console.error(err),

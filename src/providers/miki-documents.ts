@@ -29,7 +29,7 @@ export class MikiDocumentsService {
 
 
   /**
-   * Récupère les events. Permet de définir l'id de la catégorie à récupérer. Si vide, récupert tous les events
+   * Récupère les documents. Permet de définir l'id de la catégorie à récupérer. Si vide, récupert tous les documents
    */
   getDocuments(idCategory?: any) {
 
@@ -37,7 +37,7 @@ export class MikiDocumentsService {
     return new Promise((resolve, reject) => {
 
       if (idCategory != undefined && idCategory != '') {
-        this.http.get('https://es-asur.ch/api/index.php/documents/' + idCategory).subscribe(
+        this.http.get('https://asur-formation.ch/api/documents/' + idCategory).subscribe(
           data => {
             this.documents = Array();
             this.documents[idCategory] = data.json().documents;
@@ -51,7 +51,7 @@ export class MikiDocumentsService {
         );
       }
       else{
-        this.http.get('https://es-asur.ch/api/index.php/documents/').subscribe(
+        this.http.get('https://asur-formation.ch/api/documents').subscribe(
           data => {
             let documents = data.json().documents;
 

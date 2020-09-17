@@ -26,7 +26,7 @@ export class PubliciteHome{
         var el = this;
 
         setTimeout(function(){ 
-          el.printButton = true; 
+          el.printButton = true;
         }, 4000);
       }
       else{

@@ -32,8 +32,12 @@
 	</ion-row>
 
 	<ion-row class="event-category">
-		<ion-col width-33><strong>Catégorie</strong></ion-col>
-		<ion-col width-67>{{eventCategory}}</ion-col>
+		<ion-col width-33><strong>Catégories</strong></ion-col>
+		<ion-col width-67 [innerHTML]="eventCategories"></ion-col>
+	</ion-row>
+	<ion-row class="event-category">
+		<ion-col width-33><strong>Thème</strong></ion-col>
+		<ion-col width-67>{{eventTheme}}</ion-col>
 	</ion-row>
 	<ion-row class="event-pitch" *ngIf="myEvent.pitch != ''">
 		<ion-col width-33><strong>Pitch</strong></ion-col>

@@ -8,8 +8,8 @@ import { MyApp } from './app.component';
 import { IonicStorageModule } from '@ionic/storage';
 
 import { HttpModule } from '@angular/http';
-import { Device } from '@ionic-native/device';
-import { Push } from '@ionic-native/push';
+import { Device } from '@ionic-native/device/ngx';
+import { Push } from '@ionic-native/push/ngx';
 
 import {Login} from '../pages/login/login';
 import {AccountCreate} from '../pages/account-create/account-create';
@@ -41,8 +41,8 @@ import {ValidationService} from '../providers/validation';
 
 
 
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 
 @NgModule({
   declarations: [

@@ -19,7 +19,7 @@
 	<form [formGroup]="accountEditForm" (ngSubmit)="onSubmit(accountEditForm.value)">
 	    
 		<ion-list-header>
-			Données personnelles
+			<ion-label>Données personnelles</ion-label>
 		</ion-list-header>
 		
 
@@ -158,7 +158,7 @@
     	<!-- Coordonnées professionnelles -->
 
 		<ion-list-header>
-			Données professionnelles
+			<ion-label>Données professionnelles</ion-label>
 		</ion-list-header>
 
 		<ion-item [class.error]="!accountEditForm.controls.proCompany.valid && accountEditForm.controls.proCompany.touched">
@@ -257,7 +257,7 @@
 
 
 		<ion-list-header>
-			Mot de passe
+			<ion-label>Mot de passe</ion-label>
 		</ion-list-header>
 
 		<div formGroupName="passwords" [class.error]="!accountEditForm.controls.passwords.valid">
