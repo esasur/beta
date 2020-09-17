@@ -100,13 +100,13 @@ export class EventsList1 {
   // re-définit le titre de la page en fonction de la catégorie de cours affichés
   refreshTitle(){
     if (this.idCategory == 1){
-      this.pageTitle = 'Formations Continue ' + (new Date().getFullYear());
+      this.pageTitle = 'Formations Continue1 ' + (new Date().getFullYear());
     }
     else if (this.idCategory == 15){
-      this.pageTitle = '1ers Secours ' + (new Date().getFullYear());
+      this.pageTitle = '1ers Secours2 ' + (new Date().getFullYear());
     }
     else{
-      this.pageTitle = 'Formations ' + (new Date().getFullYear()); 
+      this.pageTitle = 'Formations3 ' + (new Date().getFullYear()); 
     }
   }
 
@@ -128,6 +128,7 @@ export class EventsList1 {
     this.events.getEvents(2, this.user === false, this.idCategory).subscribe(
       data => {
         this.foundEvents = data.json().events;
+        alert(this.foundEvents);
 
         let eventsFutur = Array();
         let eventsPassed = Array();

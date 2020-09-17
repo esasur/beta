@@ -96,7 +96,7 @@
 		    </ion-row>
 
 		  	<ion-list-header>
-				Données personnelles
+				<ion-label>Données personnelles</ion-label>
 			</ion-list-header>
 				
 
@@ -294,8 +294,8 @@
 		    <div *ngIf="eventPublicType == 0">
 
 			    <ion-list-header>
-				    Données professionnelles
-				  </ion-list-header>
+				    <ion-label>Données professionnelles</ion-label>
+				</ion-list-header>
 
 			    <ion-item *ngIf="user == false || user.company.name == ''" [class.error]="!eventSubscribeForm.controls.subscriptionProCompany.valid && eventSubscribeForm.controls.subscriptionProCompany.touched">
 			      <ion-label stacked>Nom de l'entreprise : *</ion-label>
@@ -430,8 +430,8 @@
 
 		     <!-- Autres informations -->
 		     <ion-list-header>
-			    Autres informations
-			  </ion-list-header>
+			    <ion-label>Autres informations</ion-label>
+			 </ion-list-header>
 
 			  <ion-item [class.error]="!eventSubscribeForm.controls.subscriptionComment.valid && eventSubscribeForm.controls.subscriptionComment.touched">
 		      <ion-label stacked>Remarque :</ion-label>

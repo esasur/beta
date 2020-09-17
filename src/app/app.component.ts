@@ -2,9 +2,9 @@ import { Component, ViewChild } from '@angular/core';
 // import { Platform, NavController } from 'ionic-angular';
 import {App, NavController, Platform, MenuController, AlertController, Events} from 'ionic-angular';
 
-import { StatusBar } from '@ionic-native/status-bar';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
 // import { SplashScreen } from '@ionic-native/splash-screen';
-import { Push } from '@ionic-native/push';
+import { Push } from '@ionic-native/push/ngx';
 
 // import { TabsPage } from '../pages/tabs/tabs';
 import {Login} from '../pages/login/login';
@@ -13,6 +13,7 @@ import {EventsList} from '../pages/events-list/events-list';
 import {AccountEdit} from '../pages/account-edit/account-edit';
 import {AccountEventsList} from '../pages/account-events-list/account-events-list'
 import {Documents} from '../pages/documents/documents';
+import {DocumentsList} from '../pages/documents/documents-list';
 import {Accueil} from '../pages/accueil/accueil';
 import {PubliciteHome} from '../pages/publicite-home/publicite-home';
 import {MikiPersonService} from '../providers/miki-person';
@@ -54,6 +55,7 @@ export class MyApp {
   accountEventsList: any = AccountEventsList;
   EventsList: any = EventsList;
   Documents: any = Documents;
+  DocumentsList: any = DocumentsList;
   pushToken: string = '';
   // user: any = false;  // peut être FALSE ou un objet représentant la personne connectée
 
@@ -203,6 +205,7 @@ export class MyApp {
     // }
     // else{
       // console.log('setRoot');
+      console.log(page);
       this.app.getRootNav().setRoot(page, { user: this.mikiPerson.user });
     // }
 
@@ -226,7 +229,7 @@ export class MyApp {
       // si la catégorie est fournie, on la passe à la page
       if (idCategory != undefined){
 
-        if (idCategory == 1){
+        if (idCategory == 30){
           // si des publicités sont configurées on les affiche
           if (this.mikiPublicite.publicites != undefined && this.mikiPublicite.publicites.fc_home.length > 0){
             this.nav.push(PubliciteHome, { pubType: 'fc_home', user: this.mikiPerson.user });
@@ -235,7 +238,7 @@ export class MyApp {
             this.nav.push(EventsList, { idCategory: idCategory, user: this.mikiPerson.user });
           }
         }
-        else if(idCategory == 15){
+        else if(idCategory == 31){
           // si des publicités sont configurées on les affiche
           if (this.mikiPublicite.publicites != undefined && this.mikiPublicite.publicites.ps_home.length > 0){
             this.nav.push(PubliciteHome, { pubType: 'ps_home', user: this.mikiPerson.user });
@@ -244,6 +247,10 @@ export class MyApp {
             this.nav.push(EventsList, { idCategory: idCategory, user: this.mikiPerson.user });
           }
         }
+        else{
+          this.nav.push(this.EventsList, { idCategory: idCategory, user: this.mikiPerson.user });
+        }
+
         // this.app.getRootNav().setRoot(EventsList, { idCategory: idCategory, user: this.mikiPerson.user });
       }
       else{

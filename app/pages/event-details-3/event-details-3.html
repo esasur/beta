@@ -79,8 +79,8 @@
 			<!-- si l'inscription est payante -->
 		  	<ion-item *ngIf="myEvent.entrance_type == 1">
 				<ion-label stacked>Tarif :</ion-label>
-				<ion-select formControlName="subscriptionPriceId">
-					<ion-option value="" selected="true">Veuillez choisir un prix</ion-option>
+				<ion-select formControlName="subscriptionPriceId" value="">
+					<ion-option value="">Veuillez choisir un prix</ion-option>
 					<ion-option *ngFor="let eventPrice of eventPrices" [value]="eventPrice.id">{{eventPrice.priceName}}</ion-option>
 				</ion-select>
 	    	</ion-item>
@@ -96,7 +96,7 @@
 		    </ion-row>
 
 		  	<ion-list-header>
-				Données personnelles
+				<ion-label>Données personnelles</ion-label>
 			</ion-list-header>
 				
 
@@ -293,7 +293,7 @@
 		    <div *ngIf="eventPublicType == 0">
 
 			    <ion-list-header>
-				    Données professionnelles
+				    <ion-label>Données professionnelles</ion-label>
 				  </ion-list-header>
 
 			    <ion-item *ngIf="user == false || user.company.name == ''" [class.error]="!eventSubscribeForm.controls.subscriptionProCompany.valid && eventSubscribeForm.controls.subscriptionProCompany.touched">
@@ -429,7 +429,7 @@
 
 		     <!-- Autres informations -->
 		     <ion-list-header>
-			    Autres informations
+			    <ion-label>Autres informations</ion-label>
 			  </ion-list-header>
 
 			  <ion-item [class.error]="!eventSubscribeForm.controls.subscriptionComment.valid && eventSubscribeForm.controls.subscriptionComment.touched">

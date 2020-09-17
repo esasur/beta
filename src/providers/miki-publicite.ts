@@ -102,22 +102,22 @@ export class MikiPubliciteService {
     let request = '';
 
     if (type == 1) {
-      request = 'https://es-asur.ch/api/index.php/publicite/';
+      request = 'https://asur-formation.ch/api/ad';
     }
     else if(type == 2) {
-      request = 'https://es-asur.ch/api/index.php/publicite/48/';
+      request = 'https://asur-formation.ch/api/ad/53';
     }
     else if(type == 3) {
-      request = 'https://es-asur.ch/api/index.php/publicite/49/';
+      request = 'https://asur-formation.ch/api/ad/56';
     }
     else if(type == 4) {
-      request = 'https://es-asur.ch/api/index.php/publicite/58/';
+      request = 'https://asur-formation.ch/api/ad/54';
     }
     else if(type == 5) {
-      request = 'https://es-asur.ch/api/index.php/publicite/59/';
+      request = 'https://asur-formation.ch/api/ad/55';
     }
     else if(type == 6) {
-      request = 'https://es-asur.ch/api/index.php/publicite/62/';
+      request = 'https://asur-formation.ch/api/ad/52';
     }
 
 
@@ -262,7 +262,7 @@ export class MikiPubliciteService {
     else
      thumb = '';
 
-    return 'https://es-asur.ch/' + el.pictures[0].folder + thumb + el.pictures[0].filename;
+    return 'https://asur-formation.ch/' + el.pictures[0].folder + thumb + el.pictures[0].filename;
   }
 
 
