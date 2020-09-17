@@ -14,7 +14,7 @@
   "dependencies": {
     "@angular/common": "5.0.0",
     "@angular/compiler": "5.0.0",
-    "@angular/compiler-cli": "^5.0.0",
+    "@angular/compiler-cli": "^5.2.11",
     "@angular/core": "5.0.0",
     "@angular/forms": "5.0.0",
     "@angular/http": "5.0.0",
@@ -34,7 +34,7 @@
     "autoprefixer": "^7.1.6",
     "cordova": "^10.0.0",
     "cordova-android": "^8.1.0",
-    "cordova-ios": "^5.0.1",
+    "cordova-ios": "5.1.1",
     "cordova-plugin-console": "^1.1.0",
     "cordova-plugin-device": "^2.0.3",
     "cordova-plugin-ionic": "^5.4.5",
@@ -52,7 +52,8 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "^3.2.4",
-    "typescript": "2.4.2"
+    "@types/node": "^12.12.6",
+    "typescript": "^2.4.2"
   },
   "cordova": {
     "plugins": {
